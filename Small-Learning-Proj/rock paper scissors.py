@@ -1,3 +1,5 @@
+#Created while following Beau Carnes' Python Course
+
 import random
 
 def get_choices():
@@ -33,6 +35,7 @@ choices = get_choices()
 result = check_win(choices["player"], choices["computer"])
 print(result)
     
+
 
 
 
