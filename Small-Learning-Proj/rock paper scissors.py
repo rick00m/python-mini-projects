@@ -1,5 +1,3 @@
-#Created while following Beau Carnes' Python Course
-
 import random
 
 def get_choices():
@@ -22,19 +20,40 @@ def check_win(player, computer):
             return "Covered up, You have fallen."
     elif player == "paper":
         if computer == "rock":
-            return "Paper wins, Flawless victory"
+            return "Paper wins, Flawless victory."
         else:
             return "Sliced, You have fallen."
     elif player == "scissors":
         if computer == "paper":
-            return "Cut through your enemy, Flawless victory"
+            return "Cut through your enemy, Flawless victory."
         else:
             return "Smashed, You have fallen."
-        
-choices = get_choices()
-result = check_win(choices["player"], choices["computer"])
-print(result)
-    
+
+player_score = 0
+cpu_score = 0
+ties = 0
+
+while True:
+    choices = get_choices()
+    result = check_win(choices["player"], choices["computer"])
+    print(result)
+
+    if "Flawless victory" in result:
+        player_score += 1
+    elif "fallen" in result:
+        cpu_score += 1
+    else:
+        ties += 1
+
+    print(f"Scores -> You: {player_score}, CPU: {cpu_score}, Ties: {ties}")
+
+    replay = input("Do you want to play again? (yes/no): ").lower()
+    if replay != "yes":
+        print("Thanks for playing! Final scores:")
+        print(f"You: {player_score}, CPU: {cpu_score}, Ties: {ties}")
+        break
+
+
 
 
 
